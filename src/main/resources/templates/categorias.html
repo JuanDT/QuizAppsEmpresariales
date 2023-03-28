@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Categorias</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"> 
+  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+
+<body >
+    
+<div class="container">
+
+    <div class="d-flex justify-content-center">
+        <nav class="navbar bg-secondary col-10">
+          <a class="btn btn-secondary rounded nav-btn mr-2">Categorias</a>
+            
+        </nav>
+      </div>
+        <br>
+    <h1 ><strong>Lista de categorias</strong></h1>
+    <br>
+    <a class="add-btn empl" th:href="@{/categoria}">Agregar categoria</a>
+    <br>
+    
+    <center>
+        <table class="table-hover align-content-center col-9">
+            <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nombre Producto</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+                
+            
+            <tr th:each="categoria : ${categoriasLista}">
+                <td th:text="${categoria.codigo}"></td>
+                <td th:text="${categoria.nomProducto}"></td>
+                <td th:text="${categoria.descripcion}"></td>
+                                
+                <td class="actions">
+                    <a  th:href="@{/editar/{codigo}(codigo=${categoria.codigo})}" class="btn btn-primary">Editar</a>
+                    <span></span>
+                    <a th:href="@{/eliminar/{codigo}(codigo=${categoria.codigo})}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que quieres eliminar esta categoria?')">Eliminar</a>
+                </td>
+            </tr> 
+            </tbody>
+        </table>
+    </center>
+    
+   
+</div> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

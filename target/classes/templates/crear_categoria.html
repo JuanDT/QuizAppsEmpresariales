@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar categoria</title>
+    <link rel="stylesheet" href="/css/formulario.css">
+  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+
+<body>
+ <div class="container-fluid col-6 bg-custom-gray empl">
+     <div class="container">
+        <h1 style="font-weight: bold;">Agregar categoria</h1>
+        <br>
+        <form th:action="@{/guardar}" th:object="${categoria}" method="POST">
+            <div class="form-group col-5 mx-auto text-center">
+                <label for="nomProducto">Nombre Producto:</label>
+                <input type="text" th:field="*{nomProducto}" id="nomProducto" class="form-control" required>
+            </div>
+            <div class="form-group col-5 mx-auto text-center">
+                <label for="descripcion">Descripción:</label>
+                <input type="text" th:field="*{descripcion}" id="descripcion" class="form-control" required>
+            </div>
+                   <br>    
+          <div class="form-group col-5 mx-auto text-center">
+                <button  type="submit" class="btn btn-success">Guardar</button>
+                <a th:href="@{/}" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
